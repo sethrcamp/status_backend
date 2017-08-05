@@ -4,7 +4,6 @@ class DB {
 
     public static function getInstance(){
         global $CONFIG;
-//error
         $host = $CONFIG["server_name"];
         $db   = $CONFIG["server_db"];
         $user = $CONFIG["server_user"];

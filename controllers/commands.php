@@ -51,8 +51,13 @@ class CommandsController {
         $firstWord = strtolower($words[0]);
 
         $from_user = Users::getByName($firstWord);
-        if(!$from_user)
+        if(!$from_user) {
+            if(isset($body['token']) && $body['token'] == "tABWNlxemplvZ2YtVeEMEB5w") {
+                $message = ["text" => "Oops! It looks like there are no users with the slack handle ".$firstWord];
+                return $response->withJson($message);
+            }
             throw new Exception("There is no user with the slack handle ".$firstWord);
+        }
 
         $from_user_status = UserStatus::getById($from_user['id']);
         if(!$from_user_status)
