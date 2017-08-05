@@ -1,21 +1,11 @@
-#RewriteEngine On
-#
-## Some hosts may require you to use the `RewriteBase` directive.
-## If you need to use the `RewriteBase` directive, it should be the
-## absolute physical path to the directory that contains this htaccess file.
-##
-## RewriteBase /
-#
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteRule ^ index.php [QSA,L]
-
-Options -MultiViews
 RewriteEngine On
 
-# redirect "/section.php?id=xxx" to "/section/xxx"
-RewriteCond %{THE_REQUEST} \s/section\.php\?id=([0-9]+)\s [NC]
-RewriteRule ^ /section/%1? [R=301,L]
+# Some hosts may require you to use the `RewriteBase` directive.
+# If you need to use the `RewriteBase` directive, it should be the
+# absolute physical path to the directory that contains this htaccess file.
+#
+# RewriteBase /
 
-# internally rewrite "/section/xxx" to "/section.php?id=xxx"
-RewriteRule ^section/([0-9]+)$ /section.php?id=$1 [L]
-
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
+DirectoryIndex index.php
