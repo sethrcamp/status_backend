@@ -45,8 +45,13 @@ class CommandsController {
         $body = $request->getParsedBody();
 
         $words = explode(" ", $body['text']);
-        if(sizeof($words) != 1)
+        if(sizeof($words) != 1) {
+            if (isset($body['token']) && $body['token'] == "tABWNlxemplvZ2YtVeEMEB5w") {
+                $message = ["text" => "I didn't quite understand that! /whereis should only have *1* parameter (/whereis [name])."];
+                return $response->withJson($message);
+            }
             throw new Exception("You may only have 1 parameter for the whereis command");
+        }
 
         $firstWord = strtolower($words[0]);
 
