@@ -53,22 +53,27 @@ class CommandsController {
         $from_user = Users::getByName($firstWord);
         if(!$from_user) {
             if(isset($body['token']) && $body['token'] == "tABWNlxemplvZ2YtVeEMEB5w") {
-                $message = ["text" => "Oops! It looks like there are no users with the slack handle ".$firstWord];
+                $message = ["text" => "Oops! It looks like there are no users with the slack handle \"".$firstWord."\"!"];
                 return $response->withJson($message);
             }
             throw new Exception("There is no user with the slack handle ".$firstWord);
         }
 
         $from_user_status = UserStatus::getById($from_user['id']);
-        if(!$from_user_status)
+        if(!$from_user_status) {
+            if(isset($body['token']) && $body['token'] == "tABWNlxemplvZ2YtVeEMEB5w") {
+                $message = ["text" => "Sorry, but ".$firstWord." has not set up a status yet. (Maybe you should tell them how cool StatusBot is!)"];
+                return $response->withJson($message);
+            }
             throw new Exception($firstWord." has not set up a status yet.");
+        }
 
         $status = Status::getById($from_user_status['status_id']);
 
-        $message = ["text" => "@".$firstWord." is currently ".$status['prefix']."`".$status['status']."`!"];
-
-        if(isset($body['token']) && $body['token'] == "tABWNlxemplvZ2YtVeEMEB5w")
+        if(isset($body['token']) && $body['token'] == "tABWNlxemplvZ2YtVeEMEB5w") {
+            $message = ["text" => "@".$firstWord." is currently ".$status['prefix']."`".$status['status']."`!"];
             return $response->withJson($message);
+        }
         return $response->withJson($from_user_status);
     }
 
