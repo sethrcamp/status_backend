@@ -39,7 +39,7 @@ $app = new \Slim\App($c);
 $container = $app->getContainer();
 
 require 'config/db.php';
-r
+
 
 $app->add(function (ServerRequestInterface $request, ResponseInterface $response, callable $next) {
     // Use the PSR 7 $request object
@@ -55,6 +55,7 @@ $app->add(function($request, $response, $next) {
 
 $app->group('', function() use ($app){
 
+    include __DIR__."/routes.php";
 
 });
 
