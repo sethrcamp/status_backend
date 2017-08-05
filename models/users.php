@@ -5,8 +5,9 @@ require_once __DIR__."/../config/db.php";
 
 class Users {
     public static function getAll () {
-        die("herrrrre");
+        //Fine
         $db = DB::getInstance();
+        die("maybe wo");
         $statement = $db->prepare("SELECT * FROM users");
         $statement->execute();
         $users = $statement->fetchAll();
