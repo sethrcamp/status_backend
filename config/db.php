@@ -3,9 +3,9 @@ class DB {
     protected function __construct(){}
 
     public static function getInstance(){
-
+die("ifhalkn");
         global $CONFIG;
-die("no sense");
+//error
         $host = $CONFIG["server_name"];
         $db   = $CONFIG["server_db"];
         $user = $CONFIG["server_user"];
