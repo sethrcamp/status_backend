@@ -6,6 +6,7 @@ class UsersController {
     public static function getAll ($request, $response, $args) {
 
         $statuses = Users::getAll();
+        die("hey there");
         return $response->withJson($statuses);
     }
     public static function getById ($request, $response, $args) {
