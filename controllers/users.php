@@ -4,7 +4,7 @@ require_once __DIR__."/../models/users.php";
 
 class UsersController {
     public static function getAll ($request, $response, $args) {
-        die("here?");
+
         $statuses = Users::getAll();
         return $response->withJson($statuses);
     }
