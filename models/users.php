@@ -7,7 +7,7 @@ class Users {
     public static function getAll () {
         //Fine
         $db = DB::getInstance();
-        die("maybe wo");
+        //error
         $statement = $db->prepare("SELECT * FROM users");
         $statement->execute();
         $users = $statement->fetchAll();

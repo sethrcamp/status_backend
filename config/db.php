@@ -3,8 +3,9 @@ class DB {
     protected function __construct(){}
 
     public static function getInstance(){
-        global $CONFIG;
 
+        global $CONFIG;
+die("no sense");
         $host = $CONFIG["server_name"];
         $db   = $CONFIG["server_db"];
         $user = $CONFIG["server_user"];
