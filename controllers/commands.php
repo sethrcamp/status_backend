@@ -29,7 +29,7 @@ class CommandsController {
             $updated_user_status = UserStatus::update(intval($user['id']), $params);
         }
 
-        $message = ["text" => "Your status has been set to ".$status['prefix']."`".$firstWord."`!"];
+        $message = ["text" => "Your status has been set to ".$status['prefix']."`".$firstWord."`!{".$body['text']."}"];
 
 
         if(isset($body['token']) && $body['token'] == "tABWNlxemplvZ2YtVeEMEB5w")
