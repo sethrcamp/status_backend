@@ -9,6 +9,7 @@
 
       
         function __construct() {
+            die("kmn");
             $this->client = new GuzzleHttp\Client(['base_uri' => 'http://localhost:8080']);
 
             $this->apiPath = '/status_slackbot';

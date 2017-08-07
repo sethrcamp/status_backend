@@ -43,7 +43,7 @@ class CronController {
 
             $slack = new Slack();
             $message = "Your status has been updated to `".$status['status']."` because the event '".$event['description']."' has ended'!";
-            die("doubt it");
+
             $slack->sendMessage($message, $user['slack_handle']);
 
 
