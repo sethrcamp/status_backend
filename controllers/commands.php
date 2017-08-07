@@ -36,6 +36,7 @@ class CommandsController {
         if($status['status'] == "free") {
             $peopleToNotify = Notifications::getAllApplicable($user['id']);
             Notifications::deleteAllApplicable($user['id']);
+            die("ERROR ERROR ERROR");
             if(sizeof($peopleToNotify) > 0) {
                 foreach ($peopleToNotify as $person) {
                     $slack = new Slack();
@@ -45,7 +46,7 @@ class CommandsController {
             }
         }
 
-        die("ERROR ERROR ERROR");
+
         $both = false;
         $start_time = time();
         $end_time = null;
