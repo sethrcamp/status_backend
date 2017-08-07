@@ -43,6 +43,7 @@ class Notifications {
             $data['both_users_free']
         ];
         $statement->execute($params);
+        die("welp");
         $notifications = Notifications::getById($db->lastInsertId());
         return $notifications;
     }
