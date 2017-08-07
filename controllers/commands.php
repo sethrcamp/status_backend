@@ -633,6 +633,8 @@ class CommandsController {
             "both_users_free" => $both,
         ];
 
+        die("hey");
+
         $notification = Notifications::create($data);
 
         if(isset($body['token']) && $body['token'] == "tABWNlxemplvZ2YtVeEMEB5w") {
