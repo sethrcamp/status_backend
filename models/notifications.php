@@ -34,8 +34,6 @@ class Notifications {
     }
     public static function create ($data) {
         $db = DB::getInstance();
-        $statement = $db->prepare("INSERT INTO notifications (to_user_id, from_user_id, start_time, end_time, both_users_free) VALUES (?,?,?,?,?)");
-        die("welp");
         $params = [
             $data['to_user_id'],
             $data['from_user_id'],
@@ -43,6 +41,11 @@ class Notifications {
             $data['end_time'],
             $data['both_users_free']
         ];
+        var_dump($params);
+        die();
+        $statement = $db->prepare("INSERT INTO notifications (to_user_id, from_user_id, start_time, end_time, both_users_free) VALUES (?,?,?,?,?)");
+
+
         $statement->execute($params);
 
         $notifications = Notifications::getById($db->lastInsertId());
