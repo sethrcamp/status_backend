@@ -14,7 +14,7 @@ class Notifications {
         $db = DB::getInstance();
         $statement = $db->prepare("SELECT * FROM notifications WHERE id = ?");
         $statement->execute([$id]);
-        $notification = $statement->fetchAll();
+        $notification = $statement->fetch();
         return $notification;
     }
     public static function getAllApplicable($user_id) {
