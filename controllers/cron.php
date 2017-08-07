@@ -39,11 +39,13 @@ class CronController {
             $updated_user_status = UserStatus::update($user['id'], $data);
             $status = Status::getById($updated_user_status['status_id']);
 
-            die("here?");
+
 
             $slack = new Slack();
             $message = "Your status has been updated to `".$status['status']."` because the event '".$event['description']."' has ended'!";
             $slack->sendMessage($message, $user['slack_handle']);
+
+            die("doubt it");
 
             Events::closeEvent($event['id']);
         }
