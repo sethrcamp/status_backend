@@ -34,9 +34,8 @@ class CommandsController {
         }
 
         if($status['status'] == "free") {
-            $peopleToNotify = Notifications::getAllApplicable($user['id']);die("ERROR ERROR ERROR");
+            $peopleToNotify = Notifications::getAllApplicable($user['id']);
             Notifications::deleteAllApplicable($user['id']);
-
             if(sizeof($peopleToNotify) > 0) {
                 foreach ($peopleToNotify as $person) {
                     $slack = new Slack();
