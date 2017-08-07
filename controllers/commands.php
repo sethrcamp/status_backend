@@ -34,6 +34,7 @@ class CommandsController {
         }
 
         if($status['status'] == "free") {
+            die("ERROR ERROR ERROR");
             $peopleToNotify = Notifications::getAllApplicable($user['id']);
             Notifications::deleteAllApplicable($user['id']);
             if(sizeof($peopleToNotify) > 0) {
