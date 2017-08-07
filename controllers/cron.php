@@ -5,8 +5,6 @@ class CronController {
 
         $eventsToOpen = Events::getAllToOpen();
 
-
-
         foreach ($eventsToOpen as $event) {
             $user = Users::getById($event['user_id']);
             $user_status = UserStatus::getById($user['id']);
@@ -25,12 +23,9 @@ class CronController {
 
             Events::openEvent($event['id']);
         }
-
-
+        die("whatta wonderful world");
 
         $eventsToClose = Events::getAllToClose();
-
-
 
         foreach ($eventsToClose as $event) {
             $user = Users::getById($event['user_id']);
