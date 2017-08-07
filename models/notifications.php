@@ -43,7 +43,7 @@ class Notifications {
             $data['from_user_id'],
             $data['start_time'],
             $data['end_time'],
-            $data['both_users_free']
+            intval($data['both_users_free'])
         ];
         $statement->execute($params);
 
