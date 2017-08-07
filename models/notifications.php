@@ -26,7 +26,7 @@ class Notifications {
             ON users.id = notifications.to_user_id
             WHERE notifications.from_user_id = ?
             AND notifications.start_time < unix_timestamp(now())
-            AND notifications.end_time > unix_timestamp(now())
+            AND (notifications.end_time > unix_timestamp(now()) OR notifications.end_time IS NULL)
         ");
         $statement->execute([$user_id]);
         $notifications = $statement->fetchAll();
