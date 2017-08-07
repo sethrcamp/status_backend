@@ -23,10 +23,10 @@ class CronController {
 
             Events::openEvent($event['id']);
         }
-        die("whatta wonderful world");
+
 
         $eventsToClose = Events::getAllToClose();
-
+        die("whatta wonderful world"2);
         foreach ($eventsToClose as $event) {
             $user = Users::getById($event['user_id']);
             $user_status = UserStatus::getById($user['id']);
