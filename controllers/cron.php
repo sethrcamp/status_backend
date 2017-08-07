@@ -26,7 +26,8 @@ class CronController {
 
 
         $eventsToClose = Events::getAllToClose();
-        die("whatta wonderful world"2);
+        var_dump($eventsToClose);
+        die();
         foreach ($eventsToClose as $event) {
             $user = Users::getById($event['user_id']);
             $user_status = UserStatus::getById($user['id']);
